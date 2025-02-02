@@ -1,0 +1,31 @@
+.navbar-container {
+    border-bottom: 1px solid black;
+}
+
+.navbar-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.navbar-links {
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links ul li {
+    padding: 8px;
+}
