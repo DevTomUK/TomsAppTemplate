@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { createUser } from "../api/auth";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { logInUser } from "../api/auth";
 
-export default function SignUpRoute() {
+export default function LogInRoute() {
   const { setUser } = useUser();
   const navigate = useNavigate();
 
@@ -20,11 +20,11 @@ export default function SignUpRoute() {
 
   async function handleSubmit() {
     try {
-      const user = await createUser(email, password);
+      const user = await logInUser(email, password);
       setUser(user);
       navigate("/");
     } catch (error) {
-      console.error("Signup failed:", error);
+      console.error("Login failed:", error);
     }
   }
   
