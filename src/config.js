@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { browserLocalPersistence, getAuth, setPersistence } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD8dR1f-wICF7P-ognA_EyBOuXAYMswhc8",
@@ -11,6 +12,16 @@ const firebaseConfig = {
   measurementId: "G-ER3GT108ED"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app)
 const analytics = getAnalytics(app);
+
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Persistence set to LOCAL");
+  })
+  .catch((error) => {
+    console.error("Failed to set persistence:", error);
+  });
+
+export { app, auth, analytics }

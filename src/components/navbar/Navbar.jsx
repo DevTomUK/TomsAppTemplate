@@ -1,36 +1,43 @@
-import React, { useState } from 'react'
-import './navbar.css'
-import { Link } from 'react-router-dom'
-
+import React from "react";
+import "./navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
 
 export default function Navbar() {
-  
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const { user, setUser } = useUser();
+  const navigate = useNavigate();
+
+  function handleLogOut() {
+    setUser(null);
+    navigate("/");
+  }
 
   return (
-    <div className='navbar-container'>
+    <div className="navbar-container">
       <div className="navbar-wrapper">
-        <div className="navbar-brand">Brand Logo</div>
+        <Link to={"/"} className="navbar-brand">
+          Brand Logo
+        </Link>
         <div className="navbar-links">
-          {isUserLoggedIn 
-          ?
+          {user ? (
             <ul>
-              <Link to={'/'}>
+              <Link to={"/"}>
                 <li>Dashboard</li>
-              </Link>      
+              </Link>
+              <li onClick={handleLogOut}>Log Out</li>
             </ul>
-          :
+          ) : (
             <ul>
-              <Link to={'/login'}>
+              <Link to={"/login"}>
                 <li>Log In</li>
               </Link>
-              <Link to={'/signup'}>
+              <Link to={"/signup"}>
                 <li>Sign Up</li>
-              </Link>          
+              </Link>
             </ul>
-          }
+          )}
         </div>
       </div>
     </div>
-  )
+  );
 }
