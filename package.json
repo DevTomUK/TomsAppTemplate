@@ -1,7 +1,8 @@
 {
-  "name": "tom-template-app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "saas0",
+  "version": "1.0.0",
+  "description": "A ReactJS boilerplate for SaaS product development",
+  "main": "src/main.jsx", 
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,5 +29,16 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
     "vite": "^6.0.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevTomUK/toms-saas-boilerplate.git"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "saas",
+    "boilerplate"
+  ]
 }

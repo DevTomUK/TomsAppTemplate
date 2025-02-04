@@ -30,24 +30,20 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-repo/reactjs-web-app-template.git
-   cd reactjs-web-app-template
+   git clone https://github.com/DevTomUK/tomsAppTemplate.git
+   cd tomsAppTemplate
    ```
 
 2. **Install dependencies:**
 
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
 3. **Run the development server:**
 
    ```bash
-   npm start
-   # or
-   yarn start
+   npm run dev
    ```
 
 ## Project Structure
@@ -66,16 +62,16 @@ src/
 
 In the project directory, you can run:
 
-- **`npm start`**: Runs the app in development mode at [http://localhost:3000](http://localhost:3000).
+- **`npm run dev`**: Runs the app in development mode - default is [http://localhost:5173](http://localhost:5173).
 - **`npm run build`**: Builds the app for production.
-- **`npm test`**: Launches the test runner.
 
 ## Customization
 
 - Add new components to the `components/` directory.
 - Manage global state using the Context API in `contexts/`.
 - Configure routes in `routes.js`.
-- Extend authentication logic in the `firebase/` directory.
+- Extend authentication and other logic in the `firebase/` directory.
+- Personalise the Routes and Splash Screen
 
 ## License
 
