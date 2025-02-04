@@ -1,40 +1,13 @@
-import React, { useState } from "react";
-import { createUser } from "../api/auth";
-import { useUser } from "../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import SignUpForm from '../components/SignUpForm'
 
 export default function SignUpRoute() {
-  const { setUser } = useUser();
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleChangeEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handleChangePassword(e) {
-    setPassword(e.target.value);
-  }
-
-  async function handleSubmit() {
-    try {
-      const user = await createUser(email, password);
-      setUser(user);
-      navigate("/");
-    } catch (error) {
-      console.error("Signup failed:", error);
-    }
-  }
-  
   return (
-    <div>
-      <label htmlFor="emailInput">E-mail</label>
-      <input id="emailInput" type="email" value={email} onChange={handleChangeEmail} />
-      <label htmlFor="passwordInput">Password</label>
-      <input id="passwordInput" type="password" value={password} onChange={handleChangePassword} />
-      <button onClick={handleSubmit}>Submit</button>
+    <div className='center-form'>
+      <div className="center-form-wrapper">
+        <h1>Sign Up</h1>
+        <SignUpForm />
+      </div>
     </div>
-  );
+  )
 }
