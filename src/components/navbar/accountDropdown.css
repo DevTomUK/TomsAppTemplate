@@ -1,0 +1,7 @@
+.navbar-account-dropdown {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    min-width: 200px;
+    border: 1px solid red;
+}

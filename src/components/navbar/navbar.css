@@ -16,6 +16,7 @@
 }
 
 .navbar-links {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -24,8 +25,16 @@
     list-style: none;
     padding: 0;
     display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
 }
 
 .navbar-links ul li {
+    display: flex;
+    align-items: center;
     padding: 8px;
+    height: 100%;
+    cursor: pointer;
 }

@@ -1,20 +1,28 @@
-import React from "react";
+import { useState } from "react";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { logOutUser } from "../../api/auth";
+import AccountDropdown from "./AccountDropdown";
 
 export default function Navbar() {
   const { user } = useUser();
   const navigate = useNavigate();
 
+  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false)
+
   async function handleLogOut() {
     try {
       await logOutUser();
+      setIsAccountDropdownOpen(false)
       navigate("/");
     } catch (error) {
       console.error("Logout failed:", error.message);
     }
+  }
+
+  function handleAccountDropdownClick() {
+    setIsAccountDropdownOpen(curr => !curr)
   }
   
 
@@ -27,10 +35,16 @@ export default function Navbar() {
         <div className="navbar-links">
           {user ? (
             <ul>
+              <li>
               <Link to={"/dashboard"}>
-                <li>Dashboard</li>
+                Dashboard
               </Link>
-              <li onClick={handleLogOut}>Log Out</li>
+              </li>
+              <li onClick={handleAccountDropdownClick}>
+                Account
+              </li>
+              {isAccountDropdownOpen && <AccountDropdown handleLogOut={handleLogOut}/>}
+              
             </ul>
           ) : (
             <ul>

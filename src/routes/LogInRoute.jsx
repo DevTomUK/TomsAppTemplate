@@ -18,7 +18,8 @@ export default function LogInRoute() {
     setPassword(e.target.value);
   }
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();  // Prevent the default form submission behavior
     try {
       const user = await logInUser(email, password);
       setUser(user);
@@ -29,12 +30,26 @@ export default function LogInRoute() {
   }
   
   return (
-    <div>
-      <label htmlFor="emailInput">E-mail</label>
-      <input id="emailInput" type="email" value={email} onChange={handleChangeEmail} />
-      <label htmlFor="passwordInput">Password</label>
-      <input id="passwordInput" type="password" value={password} onChange={handleChangePassword} />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="emailInput">E-mail</label>
+        <input
+          id="emailInput"
+          type="email"
+          value={email}
+          onChange={handleChangeEmail}
+        />
+      </div>
+      <div>
+        <label htmlFor="passwordInput">Password</label>
+        <input
+          id="passwordInput"
+          type="password"
+          value={password}
+          onChange={handleChangePassword}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
