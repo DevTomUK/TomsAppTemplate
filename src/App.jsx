@@ -12,7 +12,6 @@ import PageNotFound from "./routes/PageNotFound";
 const App = () => {
 
   const { loading, user } = useUser();
-  const navigate = useNavigate()
 
   if (loading) {
     return (
