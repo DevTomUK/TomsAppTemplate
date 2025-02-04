@@ -4,7 +4,11 @@ import LogInForm from '../components/LogInForm';
 export default function LogInRoute() {
   return (
     <div className='center-form'>
-      <h1>Log In</h1>
+      <div>
+        <h1>Log In</h1>
+        <h2>Already got an account?</h2>
+      </div>
+      
       <LogInForm />
     </div>
   );
