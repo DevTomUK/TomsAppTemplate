@@ -36,26 +36,31 @@ export default function Navbar() {
           {user ? (
             <ul>
               <li>
-              <Link to={"/dashboard"}>
-                Dashboard
-              </Link>
+                <Link to={"/dashboard"}>
+                  Dashboard
+                </Link>
               </li>
+              <li>|</li>
               <li onClick={handleAccountDropdownClick}>
                 Account
               </li>
-              {isAccountDropdownOpen && <AccountDropdown handleLogOut={handleLogOut}/>}
               
+
             </ul>
           ) : (
             <ul>
-              <Link to={"/login"}>
-                <li>Log In</li>
-              </Link>
-              <Link to={"/signup"}>
-                <li>Sign Up</li>
-              </Link>
+              <li>
+                <Link to={"/login"}>
+                  Log In
+                </Link>
+              </li>
+              <li>
+                <Link to={"/signup"}>
+                  Sign Up
+                </Link>
+              </li>
             </ul>
-          )}
+          )}{isAccountDropdownOpen && <AccountDropdown handleLogOut={handleLogOut} />}
         </div>
       </div>
     </div>
