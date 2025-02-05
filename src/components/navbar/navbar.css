@@ -21,7 +21,7 @@
   }
   
   .navbar-brand,
-  .navbar-links ul li a {
+  .navbar-links-list li a {
     text-decoration: none;
   }
   
@@ -32,7 +32,7 @@
     position: relative;
   }
   
-  .navbar-links ul {
+  .navbar-links-list {
     list-style: none;
     padding: 0;
     display: flex;
@@ -41,24 +41,19 @@
     height: 100%;
   }
   
-  .navbar-links ul li {
+  .navbar-links-list li {
     display: flex;
     align-items: center;
     padding: 8px;
     height: 100%;
-    cursor: pointer;
   }
   
-  .navbar-links ul li a {
+  .navbar-links-list li a {
+    cursor: pointer;
     text-decoration: none;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   }
   
-  .navbar-links ul li a:hover {
-    text-shadow: 0 0 8px rgba(0, 0, 0, 1);
-  }
-  
- 
   .account-icon {
     fill: var(--themeBackgroundColor);
     stroke: white;

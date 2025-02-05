@@ -34,7 +34,7 @@ export default function Navbar() {
         </Link>
         <div className="navbar-links">
           {user ? (
-            <ul>
+            <ul className="navbar-links-list">
               <li>
                 <Link to={"/dashboard"} className="link-text">
                   Dashboard
@@ -59,7 +59,7 @@ export default function Navbar() {
               </li>
             </ul>
           )}
-          <AccountDropdown handleLogOut={handleLogOut} isOpen={isAccountDropdownOpen} />
+          <AccountDropdown handleLogOut={handleLogOut} isOpen={isAccountDropdownOpen} user={user} />
         </div>
       </div>
     </div>
