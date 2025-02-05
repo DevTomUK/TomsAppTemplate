@@ -9,12 +9,12 @@ export default function Navbar() {
   const { user } = useUser();
   const navigate = useNavigate();
 
-  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false)
+  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false);
 
   async function handleLogOut() {
     try {
       await logOutUser();
-      setIsAccountDropdownOpen(false)
+      setIsAccountDropdownOpen(false);
       navigate("/");
     } catch (error) {
       console.error("Logout failed:", error.message);
@@ -22,9 +22,8 @@ export default function Navbar() {
   }
 
   function handleAccountDropdownClick() {
-    setIsAccountDropdownOpen(curr => !curr)
+    setIsAccountDropdownOpen(curr => !curr);
   }
-  
 
   return (
     <div className="navbar-container">
@@ -36,31 +35,24 @@ export default function Navbar() {
           {user ? (
             <ul>
               <li>
-                <Link to={"/dashboard"}>
-                  Dashboard
-                </Link>
+                <Link to={"/dashboard"}>Dashboard</Link>
               </li>
               <li>|</li>
               <li onClick={handleAccountDropdownClick}>
                 Account
               </li>
-              
-
             </ul>
           ) : (
             <ul>
               <li>
-                <Link to={"/login"}>
-                  Log In
-                </Link>
+                <Link to={"/login"}>Log In</Link>
               </li>
               <li>
-                <Link to={"/signup"}>
-                  Sign Up
-                </Link>
+                <Link to={"/signup"}>Sign Up</Link>
               </li>
             </ul>
-          )}{isAccountDropdownOpen && <AccountDropdown handleLogOut={handleLogOut} />}
+          )}
+          <AccountDropdown handleLogOut={handleLogOut} isOpen={isAccountDropdownOpen} />
         </div>
       </div>
     </div>

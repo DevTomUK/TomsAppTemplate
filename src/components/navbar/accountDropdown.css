@@ -1,16 +1,26 @@
+/* Add a transition to enable the sliding effect */
 .navbar-account-dropdown {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    bottom: -4px;
+    top: -4px; /* Adjusted from bottom */
     right: 4px;
-    transform: translateY(100%);
+    transform: translateY(-100%); /* Start above the button */
     min-width: 200px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid grey;
     border-radius: 8px;
+    background-color: rgb(255, 255, 255);
     box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* When the dropdown is open, change the transform to slide it down */
+.navbar-account-dropdown.open {
+    transform: translateY(60px); /* Slide in from the top */
+    opacity: 1; /* Make it visible */
 }

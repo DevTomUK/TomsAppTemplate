@@ -2,61 +2,74 @@ import React, { useState } from "react";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../api/auth";
-import './authForm.css'
+import './authForm.css';
 
 export default function SignUpForm() {
-
   const { setUser } = useUser();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  function handleChangeEmail(e) {
-    setEmail(e.target.value);
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-  function handleChangePassword(e) {
-    setPassword(e.target.value);
-  }
-
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await createUser(email, password);
+      const user = await createUser(formData.email, formData.password);
       setUser(user);
       navigate("/");
     } catch (error) {
       console.error("Signup failed:", error);
     }
-  }
+  };
 
   return (
     <div className="form-container">
-        <form className="form-wrapper" onSubmit={handleSubmit}>
-        <div className="form-input-wrapper">
-            <label htmlFor="emailInput">E-mail</label>
-            <input
-            id="emailInput"
-            type="email"
-            value={email}
-            onChange={handleChangeEmail}
-            />
-        </div>
-        <div className="form-input-wrapper">
-            <label htmlFor="passwordInput">Password</label>
-            <input
-            id="passwordInput"
-            type="password"
-            value={password}
-            onChange={handleChangePassword}
-            />
-        </div>
-        <div className="form-button-wrapper">
-            <button type="submit">Sign Up</button>
-        </div>
+      <form className="form-wrapper" onSubmit={handleSubmit}>
         
-        </form>
+        {/* Email Input */}
+        <div className="form-input-wrapper">
+          <input
+            id="emailInput"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder=" "  // Enables floating label behavior
+            required
+          />
+          <label htmlFor="emailInput">E-mail</label>
+        </div>
+
+        {/* Password Input */}
+        <div className="form-input-wrapper">
+          <input
+            id="passwordInput"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <label htmlFor="passwordInput">Password</label>
+        </div>
+
+        {/* Submit Button */}
+        <div className="form-button-wrapper">
+          <button type="submit">Sign Up</button>
+        </div>
+
+      </form>
     </div>
   );
 }

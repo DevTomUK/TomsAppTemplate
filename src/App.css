@@ -30,27 +30,3 @@
   align-items: center;
   justify-content: start;
 }
-
-.center-form {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 10vh;
-}
-
-.center-form-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border: 24px solid rgb(66, 231, 0);
-  padding: 60px;
-}
-
-.center-form-wrapper h1,
-.center-form-wrapper label {
-  color: black;
-}

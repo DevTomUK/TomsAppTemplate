@@ -5,7 +5,7 @@ import './App.css'
 import Navbar from "./components/navbar/Navbar";
 import HomeRoute from "./routes/HomeRoute";
 import SignUpRoute from "./routes/SignUpRoute";
-import LogInRoute from "./routes/LoginRoute";
+import LogInRoute from "./routes/LogInRoute";
 import DashboardRoute from './routes/DashboardRoute';
 import PageNotFound from "./routes/PageNotFound";
 import Footer from "./components/footer/Footer";

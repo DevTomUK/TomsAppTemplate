@@ -1,7 +1,32 @@
+.center-form-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 10vh;
+}
+
+.reverse-headers {
+    margin: 20px;
+    width: 50vh;
+    text-align: end;
+}
+
+.reverse-headers h1 {
+  font-size: 3rem;
+}
+
+.reverse-headers span {
+  font-size: 1.5rem;
+}
+
 .form-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px;
+    width: 50vh;
 }
 
 .form-wrapper {
@@ -13,19 +38,113 @@
 .form-input-wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
+/* Floating Label Styles */
+.form-input-wrapper label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(0, 0, 0);
+    padding: 0 4px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;  /* Allows clicks to pass through the label */
+}
+
+/* Move label up when input is focused or filled */
+.form-input-wrapper input:focus + label,
+.form-input-wrapper input:not(:placeholder-shown) + label {
+    top: 0px;
+    font-size: 0.85rem;
+    color: rgb(212, 212, 212);
+}
+
+/* Input Styles */
 .form-input-wrapper input {
     width: 100%;
     box-sizing: border-box;
     padding: 12px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: 4px solid white;
+    border-radius: 12px;
+    font-size: 1rem;
 }
 
+/* Input Focus Styling */
+.form-input-wrapper input:focus {
+    border-color: rgb(212, 212, 212);
+    outline: none;
+}
+
+/* Autofill Styles */
+.form-input-wrapper input:-webkit-autofill:focus,
+.form-input-wrapper input:-webkit-autofill:hover {
+    -webkit-text-fill-color: white !important;
+    border: 4px double white;
+}
+
+.form-input-wrapper input:-webkit-autofill {
+    background-color: rgb(0, 0, 0) !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(0, 0, 0) inset !important;
+    -webkit-text-fill-color: white !important;
+    border: 4px double white;
+    border-radius: 12px;
+}
+
+.form-input-wrapper input:-moz-autofill {
+    background-color: rgb(0, 0, 0) !important;
+    color: white !important;
+}
+
+/* Button Wrapper */
 .form-button-wrapper {
     margin-top: 20px;
 }
 
+/* Button Styling */
 .form-button-wrapper button {
     width: 100%;
     padding: 12px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    background-color: white;
+    border: 4px solid white;
+    border-radius: 12px;
+    box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Button Hover Effect */
+.form-button-wrapper button:hover {
+    background-color: rgb(212, 212, 212);
+    border-color: rgb(212, 212, 212);
+    box-shadow: none;
+}
+
+/* Button Active (Click) Animation */
+.form-button-wrapper button:active {
+    transform: scale(0.95);
+}
+
+.error-message {
+    position: absolute;
+    top: -40px;
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+
+@media (max-width: 768px) {
+    .center-form-container {
+        flex-direction: column;
+    }
+    .reverse-headers {
+        text-align: center;
+    }
+
 }
