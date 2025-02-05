@@ -8,6 +8,7 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+    padding: 0 12px;
   }
   
   .navbar-brand {
@@ -57,16 +58,16 @@
   
  
   .account-icon {
-    fill: black;
+    fill: var(--themeBackgroundColor);
     stroke: white;
     stroke-width: 40px;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
   }
   
   .account-icon.selected {
     fill: white;
-    stroke: rgb(22, 22, 22);
+    stroke: var(--themeBackgroundColor);
     filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
     transform: scale(1.3);
   }
