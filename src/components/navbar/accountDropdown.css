@@ -7,20 +7,24 @@
     justify-content: center;
     top: -4px; /* Adjusted from bottom */
     right: 4px;
-    transform: translate(100%, 60px); /* Start above the button */
+    transform: translate(100%, 80px); /* Start above the button */
     min-width: 200px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid grey;
     border-radius: 8px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.8);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* When the dropdown is open, change the transform to slide it down */
 .navbar-account-dropdown.open {
-    transform: translate(0, 60px); /* Slide in from the top */
+    transform: translate(0, 80px); /* Slide in from the top */
     opacity: 1; /* Make it visible */
+}
+
+.account-logout-button {
+    background-color: rgb(221, 221, 221);
 }

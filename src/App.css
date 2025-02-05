@@ -31,3 +31,27 @@
   align-items: center;
   justify-content: start;
 }
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 12px;
+  background-color: rgb(212, 212, 212);
+  border: 4px solid rgb(212, 212, 212);
+  box-shadow: none;
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Button Active (Click) Animation */
+button:active {
+  transform: scale(0.95);
+}
