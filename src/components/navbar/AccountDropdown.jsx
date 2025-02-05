@@ -11,9 +11,9 @@ export default function AccountDropdown({ handleLogOut, isOpen, user }) {
   return (
     <div className={`navbar-account-dropdown ${isOpen ? 'open' : ''}`}>
       <Avatar size={avatarSize} />
-      <span className='navbar-account-dropdown-email'>{user ? user.email : 'Loading...'}</span>
+      <span>{user ? user.email : 'Loading...'}</span>
       <line />
-      <ul className='navbar-account-dropdown-list'>
+      <ul>
         <li>
           <Link to={'/settings'}>
             <span>Account Settings</span>

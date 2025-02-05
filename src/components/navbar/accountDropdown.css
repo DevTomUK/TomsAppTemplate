@@ -9,7 +9,6 @@
     right: 4px;
     transform: translate(100%, 80px); /* Start above the button */
     min-width: 200px;
-    max-width: 300px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid grey;
@@ -17,23 +16,19 @@
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.8);
     opacity: 0;
-    overflow: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    font-size: 0.8rem;
 }
 
-.navbar-account-dropdown-email {
+.navbar-account-dropdown span {
     color: black;
+    font-size: 0.9rem;
 }
 
-.navbar-account-dropdown-list {
-    padding: 0;
+line {
+    border-bottom: 1px solid rgb(197, 197, 197);
+    width: 100%;
+    margin: 20px 0;
 }
-
-.navbar-account-dropdown-list span {
-    color: black;
-}
-
 
 /* When the dropdown is open, change the transform to slide it down */
 .navbar-account-dropdown.open {
