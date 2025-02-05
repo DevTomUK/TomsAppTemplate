@@ -1,14 +1,15 @@
 import { useState } from "react";
-import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { logOutUser } from "../../api/auth";
 import AccountDropdown from "./AccountDropdown";
+import AccountIcon from "./AccountIcon"; // Importing the AccountIcon component
+
+import "./navbar.css";
 
 export default function Navbar() {
   const { user } = useUser();
   const navigate = useNavigate();
-
   const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false);
 
   async function handleLogOut() {
@@ -22,7 +23,7 @@ export default function Navbar() {
   }
 
   function handleAccountDropdownClick() {
-    setIsAccountDropdownOpen(curr => !curr);
+    setIsAccountDropdownOpen((curr) => !curr);
   }
 
   return (
@@ -35,20 +36,26 @@ export default function Navbar() {
           {user ? (
             <ul>
               <li>
-                <Link to={"/dashboard"}>Dashboard</Link>
+                <Link to={"/dashboard"} className="link-text">
+                  Dashboard
+                </Link>
               </li>
               <li>|</li>
               <li onClick={handleAccountDropdownClick}>
-                Account
+                <AccountIcon selected={isAccountDropdownOpen} />
               </li>
             </ul>
           ) : (
             <ul>
               <li>
-                <Link to={"/login"}>Log In</Link>
+                <Link to={"/login"} className="link-text">
+                  Log In
+                </Link>
               </li>
               <li>
-                <Link to={"/signup"}>Sign Up</Link>
+                <Link to={"/signup"} className="link-text">
+                  Sign Up
+                </Link>
               </li>
             </ul>
           )}

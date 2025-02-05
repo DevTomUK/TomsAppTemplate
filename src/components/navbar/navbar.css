@@ -2,45 +2,72 @@
     position: sticky;
     top: 0;
     width: 100%;
-}
-
-.navbar-wrapper {
+  }
+  
+  .navbar-wrapper {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-}
-
-.navbar-brand {
+  }
+  
+  .navbar-brand {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
-}
-
-.navbar-brand, .navbar-links ul li a {
+  }
+  
+  .navbar-brand,
+  .navbar-links ul li a {
     text-decoration: none;
-}
-
-.navbar-links {
+  }
+  
+  .navbar-links {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-}
-
-.navbar-links ul {
+  }
+  
+  .navbar-links ul {
     list-style: none;
     padding: 0;
     display: flex;
     align-items: center;
     box-sizing: border-box;
     height: 100%;
-}
-
-.navbar-links ul li {
+  }
+  
+  .navbar-links ul li {
     display: flex;
     align-items: center;
     padding: 8px;
     height: 100%;
     cursor: pointer;
-}
+  }
+  
+  .navbar-links ul li a {
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .navbar-links ul li a:hover {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  }
+  
+ 
+  .account-icon {
+    fill: black;
+    stroke: white;
+    stroke-width: 40px;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+    transition: transform 0.3s ease;
+  }
+  
+  .account-icon.selected {
+    fill: white;
+    stroke: rgb(22, 22, 22);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+    transform: scale(1.3);
+  }
+  

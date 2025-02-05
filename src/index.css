@@ -1,7 +1,11 @@
+:root {
+    --themeBackgroundColor: rgb(20,20,20);
+}
+
 body {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: black;
+    background-color: var(--themeBackgroundColor);
 }
 
 *:not(button):not(input) {
