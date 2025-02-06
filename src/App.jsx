@@ -9,6 +9,7 @@ import LogInRoute from "./routes/LogInRoute";
 import DashboardRoute from './routes/DashboardRoute';
 import PageNotFound from "./routes/PageNotFound";
 import Footer from "./components/footer/Footer";
+import SettingsRoute from "./routes/SettingsRoute";
 
 const App = () => {
 
@@ -30,9 +31,10 @@ const App = () => {
       <main className="route-section">
         <Routes>
           <Route path="/" element={<HomeRoute />} />
-            <Route path="/login" element={user ? <Navigate to="/" /> : <LogInRoute />} />
-            <Route path="/signup" element={user ? <Navigate to="/" /> : <SignUpRoute />} />
+          <Route path="/login" element={user ? <Navigate to="/" /> : <LogInRoute />} />
+          <Route path="/signup" element={user ? <Navigate to="/" /> : <SignUpRoute />} />
           <Route path="/dashboard" element={user ? <DashboardRoute /> : <Navigate to="/" />} />
+          <Route path="/settings" element={user ? <SettingsRoute /> : <Navigate to={"/"} />} /> 
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </main>

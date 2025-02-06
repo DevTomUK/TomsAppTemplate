@@ -59,12 +59,20 @@
     stroke-width: 40px;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
     transition: 0.3s ease;
+    overflow: visible;
+  }
+
+  .account-icon:hover {
+    fill: rgb(56, 56, 56);
+    transform: scale(1.2);
+    stroke-width: 20px;
   }
   
   .account-icon.selected {
     fill: white;
     stroke: var(--themeBackgroundColor);
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
-    transform: scale(1.3);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+    transform: scale(1.2);
+    stroke-width: 20px;
   }
   

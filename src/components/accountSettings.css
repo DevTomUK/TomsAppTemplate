@@ -1,0 +1,96 @@
+.account-settings-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.account-settings-wrapper {
+    width: 100%;
+    min-height: 20vh;
+    max-width: 1000px;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.account-settings-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.account-settings-label-container {
+    flex: 1 1 20%;
+    text-align: right;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-weight: bold;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.account-settings-input-container {
+    flex: 1 1 75%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.account-settings-label-container label {
+    display: block;
+}
+
+.account-settings-input-container input,
+.account-settings-input-container select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.profile-image-container input {
+    margin-bottom: 10px;
+}
+
+.profile-image-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.reset-password-button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .account-settings-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .account-settings-label-container,
+    .account-settings-input-container {
+        flex: none;
+        width: 100%;
+    }
+
+    .account-settings-label-container {
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
