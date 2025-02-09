@@ -9,9 +9,12 @@
 }
 
 .reverse-headers {
-    margin: 20px;
     width: 50vh;
     text-align: end;
+}
+
+.reverse-headers, .form-container {
+    margin: 40px;
 }
 
 .reverse-headers h1 {
@@ -25,12 +28,13 @@
 .form-container {
     display: flex;
     justify-content: center;
-    margin: 20px;
     width: 50vh;
 }
 
 .form-wrapper {
     display: flex;
+    flex-grow: 1;
+    max-width: 340px;
     flex-direction: column;
     gap: 1rem;
 }
@@ -52,7 +56,7 @@
     color: white;
     font-size: 1rem;
     transition: all 0.2s ease-in-out;
-    pointer-events: none;  /* Allows clicks to pass through the label */
+    pointer-events: none; 
 }
 
 /* Move label up when input is focused or filled */
@@ -101,20 +105,72 @@
     color: white !important;
 }
 
+/* Password Requirements - Collapsed by Default */
+.password-requirements-container {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: -0.5rem 0;
+    transition: 0.3s ease-in-out;
+}
+
+/* Expanded when focused */
+.password-requirements-container.open {
+    height: 100%;
+    opacity: 1;
+    margin: 0;
+}
+
+/* Password Requirements List */
+.password-requirements {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+}
+
+.password-requirements li {
+    font-size: 0.9rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.password-requirements-title {
+    margin-bottom: 4px;
+}
+
+/* Valid/Invalid password criteria */
+.password-requirements .valid {
+    color: lightgreen;
+    padding: 0 8px
+}
+
+.password-requirements .invalid {
+    color: red;
+    padding: 0 8px
+}
+
+/* Special Characters Info */
+.special-characters-info {
+    font-size: 0.85rem;
+    color: lightgray;
+    margin-top: -5px;
+}
+
 /* Button Wrapper */
 .form-button-wrapper {
     margin-top: 20px;
 }
 
-.error-message {
-    position: absolute;
-    top: -40px;
+/* Error Message */
+.error-text {
     color: red;
     font-size: 0.9rem;
     text-align: center;
-  }
-  
+}
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     .center-form-container {
         flex-direction: column;
@@ -122,5 +178,7 @@
     .reverse-headers {
         text-align: center;
     }
-
+    .form-container {
+        width: 90%;
+    }
 }

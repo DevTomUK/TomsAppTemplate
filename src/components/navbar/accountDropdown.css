@@ -9,6 +9,8 @@
     right: 4px;
     transform: translate(100%, 80px); /* Start above the button */
     min-width: 200px;
+    width: 30vw;
+    max-width: 300px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid grey;
