@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../config";
+import { createUserInFirestore } from "./createUserInFIrestore";
 
 async function createUser(email, password) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+    createUserInFirestore(user)
     console.log("User created:", user);
     return user;
   } catch (error) {

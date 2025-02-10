@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { browserLocalPersistence, getAuth, setPersistence } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD8dR1f-wICF7P-ognA_EyBOuXAYMswhc8",
@@ -15,6 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const analytics = getAnalytics(app);
+const db = getFirestore(app)
 
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
@@ -24,4 +26,4 @@ setPersistence(auth, browserLocalPersistence)
     console.error("Failed to set persistence:", error);
   });
 
-export { app, auth, analytics }
+export { app, auth, analytics, db }
