@@ -9,16 +9,6 @@ export default function AccountSettings() {
   const [password, setPassword] = useState('');
   const [timezone, setTimezone] = useState('America/New_York');
 
-  const timezones = [
-    'America/New_York',
-    'America/Chicago',
-    'America/Los_Angeles',
-    'Europe/London',
-    'Europe/Paris',
-    'Asia/Tokyo',
-    'Australia/Sydney'
-  ];
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -37,17 +27,6 @@ export default function AccountSettings() {
   return (
     <div className='account-settings-container'>
         <div className="account-settings-wrapper">
-            <div className="account-settings-row">
-                <div className="account-settings-label-container">
-                    <label htmlFor="profile-image">Profile Image</label>
-                </div>
-                <div className="account-settings-input-container">
-                    <div className="profile-image-container">
-                        <input type="file" id="profile-image" onChange={handleImageChange} />
-                        {profileImage && <img src={profileImage} alt="Profile" className="profile-image" />}
-                    </div>
-                </div>
-            </div>
             
             <div className="account-settings-row">
                 <div className="account-settings-label-container">
@@ -83,19 +62,6 @@ export default function AccountSettings() {
                 <div className="account-settings-input-container">
                     <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <button className="reset-password-button" onClick={handleResetPassword}>Reset Password</button>
-                </div>
-            </div>
-
-            <div className="account-settings-row">
-                <div className="account-settings-label-container">
-                    <label htmlFor="timezone">Timezone</label>
-                </div>
-                <div className="account-settings-input-container">
-                    <select id="timezone" value={timezone} onChange={(e) => setTimezone(e.target.value)}>
-                        {timezones.map((zone) => (
-                          <option key={zone} value={zone}>{zone}</option>
-                        ))}
-                    </select>
                 </div>
             </div>
         </div>
