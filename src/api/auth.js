@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 import { auth } from "../config";
 import { createUserInDatabase } from "./createUserInDatabase";
 
@@ -20,6 +20,33 @@ async function createUser(email, password) {
       console.log("WEAK PASSWORD");
     }
 
+    throw error;
+  }
+}
+
+async function removeUser(password) {
+  const user = auth.currentUser;
+  if (!user) {
+    console.log("No user is signed in.");
+    return;
+  }
+
+  if (!password) {
+    throw new Error("Password is required for re-authentication.");
+  }
+
+  const credential = EmailAuthProvider.credential(user.email, password);
+
+  try {
+    // Re-authenticate the user
+    await reauthenticateWithCredential(user, credential);
+    console.log("User re-authenticated");
+
+    // Now delete the user
+    await deleteUser(user);
+    console.log("User deleted successfully");
+  } catch (error) {
+    console.error("Error during account deletion:", error.message);
     throw error;
   }
 }
@@ -46,4 +73,4 @@ async function logOutUser() {
   }
 }
 
-export { createUser, logInUser, logOutUser };
+export { createUser, logInUser, logOutUser, removeUser };
