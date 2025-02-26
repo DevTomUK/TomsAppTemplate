@@ -3,24 +3,12 @@ import './accountSettings.css';
 import { removeUser } from '../api/auth';
 
 export default function AccountSettings() {
-  const [profileImage, setProfileImage] = useState(null);
   const [firstName, setFirstName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); // Regular password field
-  const [deletePassword, setDeletePassword] = useState(''); // Separate password for deletion
+  const [password, setPassword] = useState('');
+  const [deletePassword, setDeletePassword] = useState('');
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfileImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   const handleResetPassword = () => {
     alert('Password reset link sent to your email');
@@ -35,7 +23,7 @@ export default function AccountSettings() {
     try {
       await removeUser(deletePassword);
       setShowConfirmDialog(false);
-      setDeletePassword(''); // Clear password after deletion attempt
+      setDeletePassword('');
     } catch (error) {
       alert("Error deleting account: " + error.message);
     }

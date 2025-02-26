@@ -37,7 +37,6 @@ export default function LogInForm() {
     <div className="form-container">
       <form className="form-wrapper" onSubmit={handleSubmit}>
         
-        {/* Email Input */}
         <div className="form-input-wrapper">
           <input
             id="emailInput"
@@ -45,13 +44,12 @@ export default function LogInForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder=" "  // Enables floating label behavior
+            placeholder=" "
             required
           />
           <label htmlFor="emailInput">E-mail</label>
         </div>
 
-        {/* Password Input */}
         <div className="form-input-wrapper">
           <input
             id="passwordInput"
@@ -65,9 +63,11 @@ export default function LogInForm() {
           <label htmlFor="passwordInput">Password</label>
         </div>
 
-        {/* Submit Button */}
         <div className="form-button-wrapper">
           <button type="submit">Log In</button>
+        </div>
+        <div className="forgot-password">
+          <p>Forgot Password</p>
         </div>
       </form>
     </div>

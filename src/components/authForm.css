@@ -170,6 +170,15 @@
     text-align: center;
 }
 
+.forgot-password {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.forgot-password p {
+    margin: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .center-form-container {

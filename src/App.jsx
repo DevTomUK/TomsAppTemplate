@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className="app-container">
       <Navbar />
-      <main className="route-section">
+      <main className="route-main">
         <Routes>
           <Route path="/" element={<HomeRoute />} />
           <Route path="/login" element={user ? <Navigate to="/" /> : <LogInRoute />} />

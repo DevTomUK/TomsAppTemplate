@@ -71,6 +71,7 @@ export default function Navbar() {
                   Log In
                 </Link>
               </li>
+              <li>|</li>
               <li>
                 <Link to={"/signup"} className="link-text">
                   Sign Up

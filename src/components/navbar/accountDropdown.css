@@ -5,8 +5,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    top: -4px; /* Adjusted from bottom */
-    right: 4px;
+    top: 0px; /* Adjusted from bottom */
+    right: 0px;
     transform: translate(100%, 80px); /* Start above the button */
     min-width: 200px;
     width: 30vw;
